@@ -70,7 +70,7 @@ export default function Dashboard() {
               <BarChart3 className="h-5 w-5 sm:h-6 sm:w-6 text-yellow-600 dark:text-yellow-400" />
             </div>
             <div className="ml-3 sm:ml-4">
-              <p className="text-xs sm:text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">Interviewing</p>
+              <p className="text-xs sm:text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">Interviews</p>
               <p className="text-xl sm:text-2xl font-bold text-yellow-600 dark:text-yellow-400">{stats.interviewing}</p>
             </div>
           </div>
@@ -94,7 +94,7 @@ export default function Dashboard() {
               <XCircle className="h-5 w-5 sm:h-6 sm:w-6 text-red-600 dark:text-red-400" />
             </div>
             <div className="ml-3 sm:ml-4">
-              <p className="text-xs sm:text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">Rejected</p>
+              <p className="text-xs sm:text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">Rejections</p>
               <p className="text-xl sm:text-2xl font-bold text-red-600 dark:text-red-400">{stats.rejected}</p>
             </div>
           </div>
@@ -126,9 +126,9 @@ export default function Dashboard() {
               >
                 <option value="all">All Status</option>
                 <option value="Applied">Applied</option>
-                <option value="Interviewing">Interviewing</option>
+                <option value="Interviews">Interviewing</option>
                 <option value="Offer">Offer</option>
-                <option value="Rejected">Rejected</option>
+                <option value="Rejections">Rejected</option>
               </select>
             </div>
           </div>
