@@ -62,3 +62,31 @@ export const importJobsFromJSON = (file: File): Promise<Job[]> => {
     reader.readAsText(file);
   });
 };
+
+// Clear all data (useful for testing or reset functionality)
+export const clearAllData = (): void => {
+  try {
+    localStorage.removeItem(STORAGE_KEY);
+    localStorage.removeItem('job-tracker-theme');
+  } catch (error) {
+    console.error('Error clearing data:', error);
+  }
+};
+
+// Get storage usage info
+export const getStorageInfo = () => {
+  try {
+    const jobs = loadJobsFromStorage();
+    const jobsSize = JSON.stringify(jobs).length;
+    const themeSize = localStorage.getItem('job-tracker-theme')?.length || 0;
+    
+    return {
+      totalJobs: jobs.length,
+      storageSize: jobsSize + themeSize,
+      lastUpdated: jobs.length > 0 ? Math.max(...jobs.map(job => new Date(job.updatedAt).getTime())) : null
+    };
+  } catch (error) {
+    console.error('Error getting storage info:', error);
+    return { totalJobs: 0, storageSize: 0, lastUpdated: null };
+  }
+};
