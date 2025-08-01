@@ -43,111 +43,53 @@ job-application-tracker/
 
 ## Features
 
-- Dashboard: View all saved job applications with key details
-  Responsive Design: Optimized for both mobile and desktop views
+- Add new job applications with details like job title, company, application date, location, salary, contact email, job URL, and notes.
+- View a dashboard with statistics on total applications and status breakdowns: Applied, Interviewing, Offers, Rejected.
+- Search and filter job applications by company, job title, location, or status.
+- Edit and update job application details.
+- Delete job applications with confirmation.
+- Persistent data storage using browser local storage.
 
-Data Persistence: All data saved to localStorage
+## Installation
 
-Import/Export: Backup and restore your data with JSON file import/export
+1. Clone the repository:
 
-Technologies Used
-React.js
+   ```bash
+   git clone https://github.com/hegzo891/Job_Application_Tracker.git
+   cd Job_Application_Tracker
+   ```
 
-React Router v6
+2. Install dependencies:
 
-Context API (for state management)
+   ```bash
+   npm install
+   ```
 
-TypeScript
+3. Run the development server:
 
-Vite (build tool)
+   ```bash
+   npm run dev
+   ```
 
-LocalStorage (data persistence)
+4. Open your browser and navigate to the URL shown in the terminal.
 
-Project Structure
-text
-job-application-tracker/
-├── public/
-│ └── vite.svg
-├── src/
-│ ├── assets/
-│ │ └── react.svg
-│ ├── components/
-│ │ ├── JobCard.tsx
-│ │ ├── JobForm.tsx
-│ │ └── Layout.tsx
-│ ├── contexts/
-│ │ └── JobContext.tsx
-│ ├── pages/
-│ │ ├── AddJob.tsx
-│ │ ├── Dashboard.tsx
-│ │ └── JobDetails.tsx
-│ ├── types/
-│ │ └── Jobs.ts
-│ ├── utils/
-│ │ └── storage.tsx
-│ ├── App.css
-│ ├── App.tsx
-│ └── index.css
-├── package.json
-└── README.md
-Installation
-Clone the repository:
+## Usage
 
-bash
-git clone https://github.com/your-username/job-application-tracker.git
-Navigate to the project directory:
+- **Dashboard:** View all your job applications with status statistics. Use the search bar and status filter to find specific jobs.
+- **Add Job:** Click the "Add Job" button to add a new job application with relevant details.
+- **Job Details:** Click on a job card to view detailed information, edit the job, or delete it.
+- **Theme Toggle:** Switch between light and dark mode using the theme toggle button.
 
-bash
-cd job-application-tracker
-Install dependencies:
+## Technologies Used
 
-bash
-npm install
-Start the development server:
+- React
+- Vite
+- Tailwind CSS
+- React Router
+- Lucide React Icons
+- Local Storage for data persistence
 
-bash
-npm run dev
-Open your browser and visit:
+## Notes
 
-text
-http://localhost:5173
-Usage
-Dashboard: The main page shows all your job applications.
-
-Add Job: Click "Add Job" to enter new application details.
-
-View Details: Click any job card to see full details.
-
-Edit/Delete: On the details page, you can edit or delete the entry.
-
-Import/Export: Use the options in the header to backup or restore your data.
-
-Context API Structure
-The application uses React's Context API to manage global state. The main context includes:
-
-jobs: Array of all job applications
-
-addJob: Function to add a new job
-
-editJob: Function to edit an existing job
-
-deleteJob: Function to remove a job
-
-importJobs: Function to import jobs from JSON
-
-exportJobs: Function to export jobs to JSON
-
-Data Model
-Each job application has the following properties:
-
-typescript
-interface Job {
-id: string;
-company: string;
-title: string;
-status: 'Applied' | 'Interviewing' | 'Offer' | 'Rejected';
-appliedDate: string;
-notes: string;
-}
-Contributing
-Contributions are welcome! Please open an issue or submit a pull request for any improvements.
+- All job data is stored locally in your browser's local storage, so data persists between sessions but is limited to the device/browser used.
+  New chat
