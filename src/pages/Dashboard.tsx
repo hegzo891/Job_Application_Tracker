@@ -1,5 +1,6 @@
 import React from 'react';
-import { Search, Filter, BarChart3, Briefcase, Clock, CheckCircle, XCircle } from 'lucide-react';
+import { Search, Filter, BarChart3, Briefcase, Clock, CheckCircle, XCircle, Plus } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useJobs } from '../contexts/JobContext';
 import JobCard from '../components/JobCard';
 
@@ -34,7 +35,6 @@ export default function Dashboard() {
           <p className="mt-2 text-base sm:text-lg text-gray-600 dark:text-gray-300">
             Track and manage your job applications
           </p>
-
         </div>
       </div>
 
@@ -70,7 +70,7 @@ export default function Dashboard() {
               <BarChart3 className="h-5 w-5 sm:h-6 sm:w-6 text-yellow-600 dark:text-yellow-400" />
             </div>
             <div className="ml-3 sm:ml-4">
-              <p className="text-xs sm:text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">Interview</p>
+              <p className="text-xs sm:text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">Interviewing</p>
               <p className="text-xl sm:text-2xl font-bold text-yellow-600 dark:text-yellow-400">{stats.interviewing}</p>
             </div>
           </div>
@@ -122,7 +122,7 @@ export default function Dashboard() {
               <select
                 value={state.statusFilter}
                 onChange={(e) => setStatusFilter(e.target.value)}
-                className="w-full pl-10 pr-8 py-3 sm:py-4 border border-gray-300 dark:border-gray-600 rounded-xl text-base bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 appearance-none transition-all duration-200"
+                className="w-full pl-12 pr-8 py-3 sm:py-4 border border-gray-300 dark:border-gray-600 rounded-xl text-base bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 appearance-none transition-all duration-200"
               >
                 <option value="all">All Status</option>
                 <option value="Applied">Applied</option>
@@ -150,6 +150,17 @@ export default function Dashboard() {
               : 'Try adjusting your search or filter criteria.'
             }
           </p>
+          {state.jobs.length === 0 && (
+            <div className="mt-8">
+              <Link
+                to="/add"
+                className="inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 border border-transparent text-base sm:text-lg font-bold rounded-xl text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+              >
+                <Plus className="h-5 w-5 sm:h-6 sm:w-6 mr-2" />
+                Add Your First Job
+              </Link>
+            </div>
+          )}
         </div>
       ) : (
         <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
